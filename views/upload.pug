@@ -1,0 +1,21 @@
+doctype html 
+html
+    head 
+        meta(charset='UTF-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        title Pacific Oceans | #{title}
+        link(rel='stylesheet', href='/css/style.css')
+        link(rel="shortcut icon", type='image/png',  href="/img/favicon-32x32.png")
+
+    body
+        h1 Hi Neeraj, 
+        h2 Welcome Back
+        p Plese upload the CSV format file only
+        .modal-body
+            div.form-group
+                    label.fileselect(for='name') Please Select the file
+                    input#input_file(type='file', placeholder='name' name='excel', accept=".csv")
+                    button.submitbtn(type="submit", name="submit") Submit
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js")
+        script(src='/js/upload.js')
+                //- form(action='/submit-csv-file' method='post' enctype='multipart/form-data') 

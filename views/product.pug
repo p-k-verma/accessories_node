@@ -1,0 +1,23 @@
+doctype html 
+html
+    head 
+        meta(charset='UTF-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        title Pacific Oceans | #{title}
+        link(rel='stylesheet', href='/css/style.css')
+        link(rel="shortcut icon", type='image/png',  href="/img/favicon-32x32.png")
+
+    body
+        h1.mainHeading Pacific Oceans
+        p.subHeading Here you find the all products at very affordable prices
+
+        table
+            tr
+                th Name 
+                th Color 
+                th Price
+            each product in products
+                tr 
+                    td= product.name
+                    td= product.color
+                    td= product.price
