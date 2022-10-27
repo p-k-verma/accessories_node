@@ -1,5 +1,3 @@
-// import axios from "axios";
-
 document.querySelector(".submitbtn").addEventListener("click", async (e) => {
   e.preventDefault();
 
@@ -14,6 +12,9 @@ document.querySelector(".submitbtn").addEventListener("click", async (e) => {
     url: "http://127.0.0.1:7000/api/v1/product",
     data: form
   });
-
-  console.log(res.data);
+  console.log(res);
+  if (res.data.status === "success") {
+    alert("File has been uploaded")
+    window.location.replace("http://localhost:7000")
+  }
 });

@@ -11,6 +11,8 @@ html
         h1.mainHeading Pacific Oceans
         p.subHeading Here you find the all products at very affordable prices
 
+        input#searchBox(type="text" placeholder='Search the item name')
+
         table
             tr
                 th Name 
@@ -18,6 +20,8 @@ html
                 th Price
             each product in products
                 tr 
-                    td= product.name
-                    td= product.color
-                    td= product.price
+                    td#first= product.name
+                    td#second= product.color
+                    td#third= product.price
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js")
+    script(src='/js/search.js')

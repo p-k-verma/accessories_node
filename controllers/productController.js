@@ -28,20 +28,31 @@ const upload = multer({
 
 exports.uploadUserexcel = upload.single("excel");
 
-exports.uploadFile = async (req, res)=> {
-  const csvFilePath = "uploads/productData.csv";
+exports.uploadFile = async (req, res) => {
+  res.status(200).json({
+    status: 'success',
+    data: "File has been uploaded"
+  });
+};
 
- let savedData = await  csv()
+exports.searchData = async (req, res) => {
+  const csvFilePath = "uploads/productData.csv";
+  let alldata = await csv()
     .fromFile(csvFilePath)
     .then((jsonObj) => {
-      return jsonObj
+      return jsonObj;
     });
- 
-  res.status(201).json({
-    status: "success",
-    message: 'Data has been uploaded',
-    data: {
-      savedData,
-    },
-  });
+
+  const searchData = alldata.filter((el) => el.name.includes(req.params.id));
+
+  if (searchData.length) {
+    res.status(200).render("search", {
+      title: "Search result",
+      products: searchData,
+    });
+  } else {
+    res.status(200).render("message",{
+      data : "No result found !!!!!!!"
+    });
+  }
 };
