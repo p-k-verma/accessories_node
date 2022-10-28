@@ -43,7 +43,7 @@ exports.searchData = async (req, res) => {
       return jsonObj;
     });
 
-  const searchData = alldata.filter((el) => el.name.includes(req.params.id));
+  const searchData = alldata.filter((el) => el.name.toLowerCase().includes(req.params.id.toLowerCase()));
 
   if (searchData.length) {
     res.status(200).render("search", {
