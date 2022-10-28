@@ -12,15 +12,11 @@ app.use(cors())
 app.set('view engine', "pug")
 app.set('views', path.join(__dirname,'views'))
 
-// route the pug
-// app.get('/',(req,res) => {
-//     res.status(200).render('product')
-// })
 app.use('/', viewRouter)
 app.use(express.static(__dirname + '/public'))
 
 
-// route
+// api
 app.use('/api/v1/product', productRouter);
 
 module.exports = app;

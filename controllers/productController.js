@@ -1,4 +1,3 @@
-const product = require("../models/productModel");
 const multer = require("multer");
 const csv = require("csvtojson");
 
