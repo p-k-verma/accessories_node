@@ -9,12 +9,12 @@ document.querySelector(".submitbtn").addEventListener("click", async (e) => {
 
   const res = await axios({
     method: "POST",
-    url: "http://127.0.0.1:7000/api/v1/product",
+    url: "https://neeraj.onrender.com/api/v1/product",
     data: form
   });
   console.log(res);
   if (res.data.status === "success") {
     alert("File has been uploaded")
-    window.location.replace("http://localhost:7000")
+    window.location.replace("https://neeraj.onrender.com/")
   }
 });
